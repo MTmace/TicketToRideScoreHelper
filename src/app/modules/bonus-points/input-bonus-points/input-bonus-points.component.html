@@ -1,0 +1,27 @@
+<GridLayout columns="auto, *" rows="40" paddingRight="40px">
+    
+    <Label row="0" col="1" [text]="bonusPointsDefinition.name" verticalAlignment="middle" paddingLeft="20px"></Label>
+
+    <Switch row="0"
+        col="2"
+        *ngIf="bonusPointsDefinition.bonusPointsBehavior === 'Boolean'"
+        checked="false"
+        [color]="playerScoreCard.playerColor.backgroundColor"
+        backgroundColor="green"
+        offBackgroundColor="red"
+        (checkedChange)="onCheckedChange($event)"
+        automationText="{{playerScoreCard.playerColor.name}} {{bonusPointsDefinition.name}}">
+    </Switch>
+
+    <TextField row="0"
+        col="2"
+        width="70"
+        *ngIf="bonusPointsDefinition.bonusPointsBehavior != 'Boolean'"
+        [text]="initialInput"
+        (textChange)="onTextChange($event)"
+        class="input input-border"
+        keyboardType="number"
+        horizontalAlignment="right">
+    </TextField>
+
+</GridLayout>

@@ -1,0 +1,23 @@
+.list-group-item {
+    margin-left:40px;
+    margin-right:40px;
+    padding-bottom:30px;
+}
+
+.bonus-points-layout {
+    border-top-width:4;
+    border-left-width:1;
+    border-right-width:1;
+    border-bottom-width:1;
+}
+
+.total-score-background
+{
+    opacity: 0.25;
+}
+
+.total-score
+{
+    opacity: 1.0;
+    font-size: 36pt;
+}

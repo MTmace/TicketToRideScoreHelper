@@ -5,10 +5,25 @@ import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 
+// app
+import { ModuleActionBarModule } from '~/app/shared-modules/module-action-bar/module-action-bar.module'
+import { SideDrawerModule } from '~/app/shared-modules/side-drawer/side-drawer.module'
+
 @NgModule({
-  bootstrap: [AppComponent],
-  imports: [AppRoutingModule, NativeScriptModule, NativeScriptUISideDrawerModule],
-  declarations: [AppComponent],
+  bootstrap: [
+    AppComponent,
+  ],
+  imports: [
+    AppRoutingModule, 
+    NativeScriptModule, 
+    NativeScriptUISideDrawerModule,
+  
+    ModuleActionBarModule,
+    SideDrawerModule
+  ],
+  declarations: [
+    AppComponent
+  ],
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

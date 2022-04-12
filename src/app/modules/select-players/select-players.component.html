@@ -1,0 +1,16 @@
+<mt-module-action-bar></mt-module-action-bar>
+
+<GridLayout class="page__content">
+    <StackLayout>
+        <Label text="Select colors for the players."></Label>
+        <Button *ngFor="let playerColor of (currentGameProfile$ | async)?.playerColors; let i = index"
+            [text]="playerColor.name"
+            class="btn notSelected"
+            [class.notSelected]="isColorSelected(playerColor.name)"
+            [color]="playerColor.color"
+            [backgroundColor]="playerColor.backgroundColor"
+            (tap)='selectPlayerColor(playerColor)'
+            [automationText]="playerColor.name">
+        </Button>
+    </StackLayout>
+</GridLayout>

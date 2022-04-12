@@ -1,0 +1,36 @@
+<mt-module-action-bar></mt-module-action-bar>
+
+<GridLayout class="page__content">
+  <StackLayout>
+    <Label text="Long press to remove a route."></Label>
+
+    <GridLayout *ngFor="let routeLengthPoints of (currentGameProfile$ | async)?.routeLengthPointsDefinitions; let i = index" rows="auto" columns="*" class="route-length-points">
+      <StackLayout orientation="horizontal">
+        <Label column="0" [text]="routeLengthPoints.length"></Label>
+
+        <GridLayout *ngFor="let playerScoreCard of (playerScoreCards$ | async); let i = index" rows="70" columns="70">
+          <StackLayout>
+              <Button class="btn route-length-points-button"
+                  row="0"
+                  [text]="getRouteLengthPoints(routeLengthPoints, playerScoreCard)"
+                  [backgroundColor]="playerScoreCard.playerColor.backgroundColor"
+                  [color]="playerScoreCard.playerColor.color"
+                  (touch)="onTouch($event, routeLengthPoints, playerScoreCard)"
+                  automationText="{{playerScoreCard.playerColor.name}} {{routeLengthPoints.length}}">
+              </Button>
+          </StackLayout>
+        </GridLayout>
+      
+      </StackLayout>
+    </GridLayout>
+
+    <StackLayout orientation="horizontal" backgroundColor="silver" class="scoring-total">
+      <Label *ngFor="let playerScoreCard of (playerScoreCards$ | async); let i = index"
+        [text]="currentGameService.getRouteCountScore(playerScoreCard)"
+        [color]="playerScoreCard.playerColor.backgroundColor"
+        automationText="{{playerScoreCard.playerColor.name}} total">
+      </Label>
+    </StackLayout>
+
+  </StackLayout>
+</GridLayout>

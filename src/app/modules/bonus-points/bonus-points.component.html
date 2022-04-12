@@ -1,0 +1,33 @@
+<mt-module-action-bar></mt-module-action-bar>
+
+<GridLayout class="page__content">
+    <StackLayout class="list-group">
+        <StackLayout *ngFor="let playerScoreCard of (playerScoreCards$ | async);" class="list-group-item">
+            <FlexboxLayout  [borderColor]="playerScoreCard.playerColor.backgroundColor" 
+                orientation="horizontal" 
+                class="bonus-points-layout">
+
+                <!-- DISPLAY CURRENT SCORE -->
+                <StackLayout width="40%" 
+                    [backgroundColor]="playerScoreCard.playerColor.backgroundColor" 
+                    class="total-score-background" 
+                    verticalAlignment="middle">
+                    <Label [text]="currentGameService.getTotalScore(playerScoreCard)" 
+                        class="total-score"
+                        horizontalAlignment="center"        
+                        [color]="playerScoreCard.playerColor.color">
+                    </Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <mt-input-bonus-points *ngFor="let bonusPointsDefinition of (currentGameProfile$ | async).bonusPointsDefinitions"
+                        [bonusPointsDefinition]="bonusPointsDefinition"
+                        [playerScoreCard]="playerScoreCard">
+                    </mt-input-bonus-points>
+                </StackLayout>
+
+            </FlexboxLayout>
+        </StackLayout>
+    </StackLayout>
+
+</GridLayout>

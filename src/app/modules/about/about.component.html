@@ -1,0 +1,12 @@
+<mt-module-action-bar title="Ticket to Ride : About"></mt-module-action-bar>
+
+<GridLayout class="page__content">
+  <ListView [items]="gameProfiles | async" class="list-group" row="0" class="list-group">
+
+    <ng-template let-gameProfile="item" let-i="index" let-odd="odd" let-even="even">
+        <mt-game-profile-definition [gameProfile]="gameProfile" [isEven]="i % 2 === 0"></mt-game-profile-definition>
+    </ng-template>
+
+  </ListView>
+
+</GridLayout>
