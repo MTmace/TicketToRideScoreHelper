@@ -36,3 +36,8 @@
     color: rgb(255, 0, 0);
     border-color:rgb(255, 0, 0);
 }
+
+.seperator {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
